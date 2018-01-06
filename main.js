@@ -1,7 +1,7 @@
-var galleryIndex = 1;
+var galleryIndex = 0;
 
 
-var quoteIndex = 1;
+var quoteIndex = 0;
 
 
 
@@ -30,45 +30,40 @@ function showGallery(n)  {
 }
 //automatic
 function automaticGallery() {
-    var i;
     var slides = document.getElementsByClassName("slides");
 
     for (i = 0; i < slides.length; i++) {
        slides[i].style.display = "none";
     }
-    galleryIndex++;
-    if (galleryIndex > slides.length) {galleryIndex = 1}
+    galleryIndex = (galleryIndex+1)%slides.length;
 
-    slides[galleryIndex-1].style.display = "block";
-
-    setTimeout(automaticGallery, 6000); // Change image every 4 seconds
+    slides[galleryIndex].style.display = "block";
+    showQuotes();
+    setTimeout(automaticGallery, 1000); // Change image every 6 seconds
 }
 
 
 //Carousel Ends
 
 
-//Deals witht he quote gallery lower down on the landing page, which moves automatically
+//Deals witht the quote gallery lower down on the landing page, which moves automatically
 //quote box functionality begins
 function showQuotes() {
-    var i;
     var slides = document.getElementsByClassName("quote-slides");
 
+    //hide all quotes
     for (i = 0; i < slides.length; i++) {
        slides[i].style.display = "none";
     }
-    quoteIndex++;
-    if (quoteIndex > slides.length) {quoteIndex = 1}
+    quoteIndex = (quoteIndex+1)%slides.length;
 
-    slides[quoteIndex-1].style.display = "block";
 
-    setTimeout(showQuotes, 6000); // Change image every 4 seconds
+    slides[quoteIndex].style.display = "block";
+
 }
 //Quote box functionality ends
 
 
 showGallery(galleryIndex);
 automaticGallery();
-
-
 showQuotes();
