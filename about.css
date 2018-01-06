@@ -1,0 +1,124 @@
+/*Title Fonts */
+@import url('https://fonts.googleapis.com/css?family=Manuale|Share+Tech+Mono|Ubuntu+Mono');
+
+/*Text Fonts */
+@import url('https://fonts.googleapis.com/css?family=Crimson+Text|Josefin+Slab|Lora|Old+Standard+TT|Playfair+Display');
+
+
+
+/* Awesome Icons for About Page */
+  .media-links-container >.fa{
+  padding: 10px;
+  font-size: 15px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 5px;
+}
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-github {
+  background: #151515;
+  color: white;
+}
+
+
+/*Team Thumbnails*/
+/*mobile view*/
+.team-gallery {
+  display: flex;
+  flex-direction: column;
+  margin: 75px 10% 25px 10%;
+}
+
+.thumbnail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.headshot {
+  border-radius: 15px;
+  width: 50%;
+  height: auto;
+  margin: auto;
+  display: block;
+}
+
+.info-area {
+  display: flex;
+  flex-direction: column;
+}
+
+.bio {
+ text-align:center;
+}
+
+.bio-name {
+  margin-bottom: 10px;
+  font-family:"Manuale";
+}
+
+.bio-title {
+  margin-bottom: 20px;
+  font-family: 'Old', Standard,TT;
+}
+
+.bio-text {
+ font-family: 'Old', Standard,TT;
+}
+
+.media-links-container {
+  align-self: center;
+  display: flex;
+  justify-content: center;
+}
+
+/*tablet view*/
+@media (min-width: 600px) {
+}
+
+/*desktop view*/
+@media (min-width: 1000px) {
+  .team-gallery {
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 75px 0px 25px 0px;
+    padding: 0px 50px;
+  }
+
+  .separator {
+    display: none;
+  }
+
+  .thumbnail {
+    margin: 0px 50px;
+  }
+
+  .headshot {
+    width: 75%;
+  }
+
+
+}
+
+
+

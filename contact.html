@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang = "en">
+  <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Crypto Currency Consulting</title>
+        <meta name="description" content="Crypto Currency Consulting">
+        <!-- CSS imports -->
+        <link rel="stylesheet" href="main.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  </head>
+
+  <body>
+  <header>
+     <div id="logo-container">
+      <a href="index.html"><img src="Logos/CCC.png"/></a>
+    </div>
+    <nav role="navigation">
+      <div id="menu-toggle">
+        <input type="checkbox"/>
+
+        <span id="first"></span>
+        <span id="second"></span>
+        <span id="third"></span>
+
+        <ul id="menu">
+          <a href="index.html"><li>Home</li></a>
+          <a href="services.html"><li>Services</li></a>
+          <a href="about.html"><li>The Team</li></a>
+          <a href="media.html"><li>Press</li></a>
+          <a href="contact.html"><li>Contact Us</li></a>
+        </ul>
+
+      </div>
+    </nav>
+  </header>
+
+  <!--Title Head For Contact Page -->
+   <!--Banner image and text -->
+  <div class="banner-container">
+    <img src="image_3.jpg" alt="Banner">
+    <div class="banner-text">Contact us</div>
+  </div>
+
+  <!--Put the Contact Form here -->
+  <!-- will need backend work to process the input -->
+  <div class="contact">
+    <div class="contact-description">
+      <h1 class = "contact-title">
+        Get in contact with us
+      </h1>
+      <p class = "contact-text">
+       Fill out the form below to contact us by email or phone
+      </p>
+      <h2 class="extra-subtile">
+        
+      </h2>
+      <p class="extra-text">
+        bonus text 1
+      </p>
+      <h3 class="extra-subtitle">
+        bonus title 2
+      </h3>
+      <p class="extra-text">
+        bonus text 2
+      </p>
+    </div>
+
+    <form class= "contact-form" method = "post" action = "contact.php" > <!-- link to php file will go in opening form tag -->
+      <div class="split">
+
+
+        <div class="name-bundle">
+        <label><span class="required">* <?php echo $nameErr;?></span>Name</label>
+        <input type="text" name="name" placeholder="John Smith">
+        </div>
+
+
+        <div class="phone-bundle">
+        <label>Phone</label>
+        <input type="text" name="phone" placeholder="867-5309">
+        </div>
+
+      </div>
+
+
+      <label> <span class="required">* <?php echo $emailErr;?></span>Email</label>
+      <input type="email" name="email" placeholder="john.smith@email.com">
+
+
+      <label><span class="required">*</span>Message</label>
+      <textarea name = "comment" placeholder="I <3 Cryptocurrency Consulting"></textarea>
+
+
+      <input type="submit" name = "submit" value = "Submit">
+    </form>
+
+  </div>
+
+  <!-- Footer(Social Media stuff) -->
+    <div class = "footer">
+      <div class = "copyright">
+          Copyright &copy; CryptocurrencyConsulting. All Rights Reserved.
+      </div>
+      <div class = "social">
+        <a href="https://www.linkedin.com/company/25019120/" class="fa fa-linkedin"></a>
+      <a href="https://github.com/CryptocurrencyConsulting" class="fa fa-github"></a>
+      </div>
+
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>
