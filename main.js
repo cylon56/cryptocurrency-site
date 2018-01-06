@@ -1,8 +1,9 @@
 var galleryIndex = 0;
 
 
-
-
+function next(offset){
+  nextGallery(offset)
+}
 //automatic
 function nextGallery(offset) {
     var slides = document.getElementsByClassName("slides");
