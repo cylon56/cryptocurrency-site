@@ -4,7 +4,7 @@ var galleryIndex = 0;
 function next(offset){
   nextGallery(offset)
 }
-//automatic
+
 function nextGallery(offset) {
     var slides = document.getElementsByClassName("slides");
     galleryIndex += offset | 1
@@ -16,11 +16,6 @@ function nextGallery(offset) {
     nextQuote()
 }
 
-
-//Carousel Ends
-
-
-// uses gallery index
 function nextQuote() {
     var slides = document.getElementsByClassName("quote-slides");
 
@@ -33,8 +28,5 @@ function nextQuote() {
     slides[galleryIndex].style.display = "block";
 
 }
-//Quote box functionality ends
-
-
 nextGallery(0);
 setInterval(nextGallery, 1000); // Change image every 6 seconds
