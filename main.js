@@ -33,8 +33,23 @@ function nextQuote() {
     slides[galleryIndex].style.display = "block";
 
 }
-//Quote box functionality ends
 
+// nextGallery(0);
+// setInterval(nextGallery, 6000); // Cange image every 6 seconds
 
-nextGallery(0);
-setInterval(nextGallery, 6000); // Change image every 6 seconds
+let randomColor = ()=>{
+   return parseInt(Math.random()*16777216).toString(16);
+
+}
+let colorElement = (element)=>{
+  element.style.backgroundColor = "#"+randomColor();
+}
+toplevel = document.querySelector("body").children;
+function traverse(children){
+    for(let c of children){
+      colorElement(c);
+      traverse(c.children);
+    }
+
+}
+traverse(toplevel);
