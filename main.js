@@ -52,4 +52,4 @@ function traverse(children){
     }
 
 }
-traverse(toplevel);
+// traverse(toplevel);

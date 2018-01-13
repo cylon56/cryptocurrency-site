@@ -41,6 +41,13 @@ h1{
 #sinker{
   text-align: center;
 }
+#sinker a{
+  color: #79bdd9
+}
 nav{
   display: none;
+}
+button{
+  border-radius: 10px;
+  box-shadow: 0;
 }
