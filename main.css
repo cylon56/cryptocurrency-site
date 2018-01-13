@@ -1,7 +1,5 @@
 html{
   width: 100%;
-
-
 }
 body{
   margin: 0;
@@ -19,19 +17,23 @@ h1{
 .container{
   width: 100%;
 }
-
+.center{
+  text-align: center;
+  grid-column: 2/3
+}
+.all{
+  grid-column: 1/4
+}
 #top{
   height: calc(100vh - 4em);
   padding-top: 10vh;
-}
-#top a{
   box-sizing: border-box;
   display: grid;
   grid-template-columns: 1fr minmax(0,687.5px) 1fr;
-
+  grid-template-rows: max-content;
+  grid-auto-rows: max-content;
 }
 #top a.container img{
-  grid-column: 2/3;
   width:100%;
   box-sizing: border-box;
   padding: 0 20px ;
