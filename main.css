@@ -8,21 +8,30 @@
 
 * {
 	font-family: 'Montserrat', sans-serif;
-  box-sizing: border-box;
 }
 
 html{
-  width: 100%;
   overflow-x: hidden;
 }
 body{
   margin: 0;
   display: flex;
   flex-direction: column;
-  max-width: 1080;
+	width: 100%;
+
 }
 h1{
   text-align: center;
+	font-size: 2.5vmax;
+}
+h2{
+	font-size: 2vmax;
+}
+h3{
+	font-size: 1.5vmax;
+}
+h4{
+	font-size: 1.3vmax;
 }
 .rows{
   display: flex;
@@ -39,24 +48,21 @@ h1{
   grid-column: 1/4
 }
 #top{
-  height: calc(100vh - 4em);
-  padding-top: 10vh;
-  box-sizing: border-box;
-  display: grid;
-  grid-template-columns: 1fr minmax(0,687.5px) 1fr;
-  grid-template-rows: max-content;
+	display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
   grid-auto-rows: max-content;
+  box-sizing: border-box;
+	padding-top: 5%;
 }
 #top a.container img{
-  width:100%;
+  width:100vmin;
   box-sizing: border-box;
-  padding: 0 40px ;
+  max-width: 1000px;
 }
-#top>img{
+#landingback{
   position:absolute;
   z-index: -1;
-  width:10vw;
-  /* height:100% */
+  width:100vw;
 }
 #sinker{
   text-align: center;
@@ -64,10 +70,37 @@ h1{
 #sinker a{
   color: #79bdd9
 }
+#sinker h1,h2,h3,h4{
+	margin-top:.5em;
+	margin-bottom: .5em;
+}
+#default-color{
+	position:fixed;
+	height: 100%;
+	width: 100%;
+	background-color: #ebebeb;
+	z-index: -2;
+}
 nav{
   display: none;
 }
-button{
-  border-radius: 10px;
-  box-shadow: 0;
+.white{
+	background-color: white;
+}
+@media screen and (max-width: 425px){
+  #top a.container{
+    grid-column: 1/4;
+  }
+}
+@media screen and (orientation: portrait){
+	#landingback{
+	  transform: rotateZ(90deg);
+		height: 100vw
+	}
+}
+@media screen and (orientation: landscape){
+	#top{
+		height: calc(100vh - 4em);
+
+	}
 }
