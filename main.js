@@ -1,41 +1,7 @@
 var galleryIndex = 0;
 
 
-function next(offset){
-  nextGallery(offset)
-}
-//automatic
-function galleryGen(slideshow) {
-    ind = 0
-    slides = slideshow.querySelectorAll(".slides");
 
-    return (() => {
-      // console.log(slides[ind]);
-      slides[ind].className = toggleStr(slides[ind].className, "active");
-      ind += 1;
-      if (ind < 0) ind = slides.length - 1;
-      ind %= slides.length;
-      slides[ind].className = toggleStr(slides[ind].className, "active");
-  });
-}
-
-
-let randomColor = ()=>{
-   return parseInt(Math.random()*16777216).toString(16);
-
-}
-let colorElement = (element)=>{
-  element.style.backgroundColor = "#"+randomColor();
-}
-toplevel = document.querySelector("body").children;
-function traverse(children){
-    for(let c of children){
-      colorElement(c);
-      traverse(c.children);
-    }
-
-}
-// traverse(toplevel);
 
 // array of elements to put on same slide
 //first set of elements are respective element classnames
@@ -57,9 +23,8 @@ function slideshow(show,classNames,elements){
       slide.appendChild(section);
       section.textContent = e[j];
     }
-
-
   });
+  show.children[0].className+= " active";
   console.log(show.children[0].children[0]);
 }
 
@@ -75,9 +40,47 @@ function addList(a,b){
   return a
 }
 function toggleStr(str,toggle){
-  return "".join(str.split(toggle));
+  if(str.indexOf(toggle) == -1) return str+" "+toggle;
+  return str.split(toggle).join("");
 
 }
+function next(offset){
+  nextGallery(offset)
+}
+//automatic
+function galleryGen(slideshow) {
+    ind = 0
+    slides = slideshow.querySelectorAll(".slide");
+    let toggle = (str)=>{
+      slides[ind].className = toggleStr(slides[ind].className, str || "active");
+    }
+    return (() => {
+      // console.log(slides[ind]);
+      toggle();
+      ind += 1;
+      if (ind < 0) ind = slides.length - 1;
+      ind %= slides.length;
+      toggle();
+  });
+}
+
+
+let randomColor = ()=>{
+   return parseInt(Math.random()*16777216).toString(16);
+
+}
+let colorElement = (element)=>{
+  element.style.backgroundColor = "#"+randomColor();
+}
+toplevel = document.querySelector("body").children;
+function traverse(children){
+    for(let c of children){
+      colorElement(c);
+      traverse(c.children);
+    }
+
+}
+// traverse(toplevel);
 classNames = ["quote","author"]
 c_authors = "abc def ghi".split(" ");
 c_quotes = "The results have exceeded my wildest expectations. For anyone who feels like I did, knowing this is the investment of a lifetime, but does not know where to begin, these are your guys!";
@@ -88,4 +91,4 @@ c_quotes = c_quotes.split("||");
 show = document.querySelector("#famous")
 slideshow(show,classNames,zip(c_quotes,c_authors)) ;
 abstract = galleryGen(show);
-// setInterval(abstract, 1000); // Cange image every 6 seconds
+setInterval(abstract, 3000); // Cange image every 6 seconds
