@@ -100,7 +100,7 @@ nav{
 }
 @media screen and (orientation: landscape){
 	#top{
-		height: calc(100vh - 4em);
+		/* height: calc(100vh - 4em); */
 
 	}
 }
