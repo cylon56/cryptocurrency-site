@@ -74,6 +74,9 @@ h4{
 	margin-top:.5em;
 	margin-bottom: .5em;
 }
+.default{
+	background-color: #ebebeb;
+}
 #default-color{
 	position:fixed;
 	height: 100%;
