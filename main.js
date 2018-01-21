@@ -1,5 +1,5 @@
 var galleryIndex = 0;
-
+var galleries = [];
 
 
 
@@ -54,14 +54,20 @@ function galleryGen(slideshow) {
     let toggle = (str)=>{
       slides[ind].className = toggleStr(slides[ind].className, str || "active");
     }
-    return (() => {
+    let iter = () => {
       // console.log(slides[ind]);
       toggle();
       ind += 1;
       if (ind < 0) ind = slides.length - 1;
       ind %= slides.length;
       toggle();
-  });
+   };
+   slideshow.iter = iter;
+   galleries.push(slideshow);
+   sizeup(slideshow);
+   return iter;
+
+
 }
 
 
@@ -98,6 +104,26 @@ function getClasses(el){
     return e.className;
   });
 }
+let sizeup = (show)=>{
+  console.log(show);
+    let slides = show.querySelectorAll(".slide");
+    let iter = show.iter;
+    resize = ()=>{
+      show.style.height = "";
+      let height = 0;
+      for(let i = 0; i < slides.length; i++){
+        temp = show.clientHeight;
+        console.log(temp, height)
+        if(height < temp){
+          height = temp;
+        }
+        iter();
+      }
+        show.style.height = height+"px";
+    }
+  resize();
+  return resize;
+  };
 // traverse(toplevel);
 
 /*
@@ -119,3 +145,7 @@ clients.innerHTML = "";
 console.log(getClasses(clients),content);
 slideshow(clients,"author quotes".split(" "),content)
 setInterval(galleryGen(clients),1000);
+
+for(let show of galleries){
+  window.addEventListener("resize", sizeup(show));
+}
