@@ -7,7 +7,7 @@ var galleries = [];
 //first set of elements are respective element classnames
 //show is not required but for sake of simplicity is added before elements
 function slideshow(show,classNames,elements){
-  console.log(show,classNames,elements)
+  // console.log(show,classNames,elements)
   let newDiv = (className)=>{
     className = className || "slide";
     slide_temp = document.createElement("DIV");
@@ -88,6 +88,7 @@ function traverse(children){
 }
 function mapDom(el,func){
   let temp = [];
+	console.log(el);
   let children = el.children
   for(let e = 0; e < children.length; e++){
     temp.push(func(children[e],e));
@@ -105,7 +106,7 @@ function getClasses(el){
   });
 }
 let sizeup = (show)=>{
-  console.log(show);
+  // console.log(show);
     let slides = show.querySelectorAll(".slide");
     let iter = show.iter;
     resize = ()=>{
@@ -113,7 +114,7 @@ let sizeup = (show)=>{
       let height = 0;
       for(let i = 0; i < slides.length; i++){
         temp = show.clientHeight;
-        console.log(temp, height)
+        // console.log(temp, height)
         if(height < temp){
           height = temp;
         }
@@ -129,6 +130,15 @@ let sizeup = (show)=>{
 /*
 2 different ways of creating the slide shows
 */
+let genshow = (show)=>{
+  statements = show.children;
+  content = zip(toText(statements[0]),toText(statements[1]));
+	classes = getClasses(show);
+	clients.innerHTML = "";
+  console.log(getClasses(show),content);
+  // slideshow(show,"author quotes".split(" "),content)
+}
+
 classNames = ["quote","author"]
 c_authors = "abc def ghi".split(" ");
 c_quotes = "The results have exceeded my wildest expectations. For anyone who feels like I did, knowing this is the investment of a lifetime, but does not know where to begin, these are your guys!||I have been more than satisfied with the guidance and the very pleasing and professional attitude. I would recommend these services to anyone at any level with no hesitation what-so-ever.||Cryptocurrency Consulting has helped me get started investing in crypto-currencies. They're highly reliable, but flexible at the same time. Their clear communications skills and all-around knowledge of crypto-currencies have proven highly beneficial to me.";
@@ -139,11 +149,7 @@ slideshow(show,classNames,zip(c_quotes,c_authors)) ;
 setInterval(galleryGen(show), 1000); // Cange image every 6 seconds6
 
 clients = document.querySelector("#clients");
-statements = clients.children;
-content = zip(toText(statements[0]),toText(statements[1]));
-clients.innerHTML = "";
-console.log(getClasses(clients),content);
-slideshow(clients,"author quotes".split(" "),content)
+genshow(clients);
 setInterval(galleryGen(clients),1000);
 
 for(let show of galleries){
