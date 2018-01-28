@@ -47,6 +47,13 @@ h4{
 .all{
   grid-column: 1/4
 }
+.info{
+  align-items: center;
+}
+p{
+  padding: 0 25vmin;
+  /* transform: translateX(100%); */
+}
 #top{
 	display: grid;
   grid-template-columns: 1fr 3fr 1fr;
