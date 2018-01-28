@@ -143,7 +143,7 @@ genshow(famous);
 setInterval(galleryGen(famous),1290);
 clients = document.querySelector("#clients");
 genshow(clients);
-setInterval(galleryGen(clients),10000);
+setInterval(galleryGen(clients),1000);
 
 for(let show of galleries){
   window.addEventListener("resize", sizeup(show));
