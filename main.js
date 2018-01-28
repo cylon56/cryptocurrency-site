@@ -26,6 +26,7 @@ function slideshow(show,classNames,elements){
     }
   });
   show.children[0].className+= " active";
+  console.log(show);
 }
 
 function zip(a,b){
@@ -134,20 +135,12 @@ let genshow = (show)=>{
   statements = show.children;
   content = zip(toText(statements[0]),toText(statements[1]));
 	classes = getClasses(show);
-	clients.innerHTML = "";
-  console.log(getClasses(show),content);
-  // slideshow(show,"author quotes".split(" "),content)
+	show.innerHTML = "";
+  slideshow(show,classes,content);
 }
-
-classNames = ["quote","author"]
-c_authors = "abc def ghi".split(" ");
-c_quotes = "The results have exceeded my wildest expectations. For anyone who feels like I did, knowing this is the investment of a lifetime, but does not know where to begin, these are your guys!||I have been more than satisfied with the guidance and the very pleasing and professional attitude. I would recommend these services to anyone at any level with no hesitation what-so-ever.||Cryptocurrency Consulting has helped me get started investing in crypto-currencies. They're highly reliable, but flexible at the same time. Their clear communications skills and all-around knowledge of crypto-currencies have proven highly beneficial to me.";
-c_quotes = c_quotes.split("||");
-// console.log(c_quotes);
-show = document.querySelector("#famous")
-slideshow(show,classNames,zip(c_quotes,c_authors)) ;
-setInterval(galleryGen(show), 1000); // Cange image every 6 seconds6
-
+famous = document.querySelector("#famous")
+genshow(famous);
+setInterval(galleryGen(famous),1290);
 clients = document.querySelector("#clients");
 genshow(clients);
 setInterval(galleryGen(clients),1000);
