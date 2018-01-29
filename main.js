@@ -140,10 +140,10 @@ let genshow = (show)=>{
 }
 famous = document.querySelector("#famous")
 genshow(famous);
-setInterval(galleryGen(famous),1290);
+setInterval(galleryGen(famous),5000);
 clients = document.querySelector("#clients");
 genshow(clients);
-setInterval(galleryGen(clients),1000);
+setInterval(galleryGen(clients),6500);
 
 for(let show of galleries){
   window.addEventListener("resize", sizeup(show));
